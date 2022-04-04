@@ -1,0 +1,22 @@
+{
+  "name": "mtg_scraper",
+  "version": "1.0.0",
+  "description": "mysql database manipulation via sequelize practice",
+  "main": "server.js",
+  "scripts": {
+    "test": "node test",
+    "dev": "nodemon server"
+  },
+  "author": "Peter Muth",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.3",
+    "express-handlebars": "^6.0.3",
+    "mysql2": "^2.3.3",
+    "puppeteer": "^13.5.1",
+    "sequelize": "^6.17.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}

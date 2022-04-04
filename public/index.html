@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+    crossorigin="anonymous">
+
+
+    <link rel="stylesheet" href="/css/style.css">
+  <title>MTG scraper</title>
+</head>
+
+
+
+<body >
+  <header>
+    <h2><a href="index.html"> <!-- <i class="fas fa-code"> --> MTG scraper <!-- </i> -->
+       </a></h2>
+    <nav>
+      <ul>
+        <li>
+          <a href="index.html">Home</a>
+        </li>
+        <li>
+          <a href="gigs.html">Saved prices</a>
+        </li>
+        <li>
+          <a href="add.html">Database</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="search" class="search-wrap">
+    <h1>Card selection</h1>
+    <form action="/cards/mtg" method="get" class="search-form">
+     <i class="fas fa-search"></i>
+    <select name="name" class="fas fa-search">
+        <option value="" class="search-wrap" >Please choose a card</option>
+        <option value="The Kami War">The Kami War</option>
+        <option name="Intrepid Adversary">Intrepid Adversary</option>
+        <option name="Ao, the Dawn Sky">Ao, the Dawn Sky</option>
+        
+    </select>
+      
+      <input type="submit" value="Search">
+
+  
+    </form>
+    <div class="cardprice" class="fas fa-search">$</div>
+  </section>
+
+
+</body>
+</html>
