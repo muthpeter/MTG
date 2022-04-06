@@ -1,0 +1,23 @@
+<section id="cards" class="container">
+    <h1>Previous inquires</h1>
+ 
+    {{#each cards}}
+    <div class="card">
+      <h3>Card name : {{name}}</h3>
+      <p>Price : {{price}}</p>
+      <p>Date: {{createdAt}}</p>
+     
+        <form action="/cards/delete" method="post">
+          <a5>Delete inquiry no. :</a5>  <input type="submit" name="id" value="{{id}}"/>
+        </form>
+
+      
+      </div>  
+    
+      {{else}}
+        <p>No cards avaliable</p>
+    {{/each}}
+    
+    </section>
+  
+    

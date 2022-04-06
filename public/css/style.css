@@ -33,7 +33,7 @@ a:hover {
 }
 
 .container {
-  max-width: 960px;
+  max-width: 500px;
   padding: 1rem 4rem;
   margin: auto;
   overflow: hidden;
@@ -164,7 +164,7 @@ input[type='search'] {
 }
 
 /* Gigs */
-.gig {
+.card {
   background: var(--bg-color);
   border-bottom: 4px solid var(--primary-color);
   color: #fff;
@@ -173,17 +173,17 @@ input[type='search'] {
   box-shadow: var(--box-shadow);
 }
 
-.gig ul {
+.card ul {
   list-style: none;
   display: flex;
 }
 
-.gig li {
+.card li {
   margin-right: 0.5rem;
   padding: 0.6rem;
 }
 
-.gig .tech span {
+.card .tech span {
   color: var(--primary-color);
 }
 

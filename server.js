@@ -4,8 +4,12 @@ const app = express()
 const PORT = process.env.PORT || 3000
 const path =require('path')
 const exphbs  = require('express-handlebars')
+const Handlebars = require('handlebars')
+const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
 
-app.engine('handlebars', exphbs.engine());
+
+//setting up handlebars
+app.engine('handlebars', exphbs.engine({handlebars: allowInsecurePrototypeAccess(Handlebars)}))
 app.set('view engine', 'handlebars');
 
 
@@ -23,6 +27,7 @@ app.use('/cards',cards)
 //static path
 app.use(express.static(path.join(__dirname,'/public')))
 
-app.get('/', (req, res) => res.render('home'))
+app.get('/', (req, res) => res.render('home', {layout : 'landing'}))
+
 app.listen(PORT)
-  
+   

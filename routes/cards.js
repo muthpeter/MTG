@@ -7,6 +7,19 @@ const targets = require('../config/Targets')
 
 // add a new entry to the database. needs name and price parameters
 
+router.post('/save/:id', (req,res)=> {
+    
+    Cards.create({
+        name : req.body.id,
+        price : req.params.id
+    })
+    .then(()=> {
+        res.redirect('/cards')
+               })
+    .catch(err=>console.log(err))
+    
+    })
+
 router.post('/add',(req,res) =>{
 
 let name = req.query.name
@@ -26,17 +39,15 @@ console.log(name, price)
  
 // delete an entry from the database by id
 
-router.delete('/:id', (req,res) =>{
-
-    //delete the last row from cards
-    Cards.destroy({where: {id:  req.params.id}}).then(() => {
-        console.log(`the card with id: ${req.params.id} deleted`)
-        res.send(Cards.body)
-        res.sendStatus(200)
+router.post('/delete', async (req,res) =>{
+    console.log(`deleting card ${req.body.id}`)
+  //  delete the last row from cards
+    await Cards.destroy({where: {id:  req.body.id}}).then(() => {
     }).catch(err =>console.log(err))
 
-    //Cards.update({name: 'price'} ,{where: {id :1}})
+    Cards.update({name: 'price'} ,{where: {id :1}})
 
+    res.redirect('/cards')
 
 })
 
@@ -53,16 +64,30 @@ router.get('/list',(req,res)  =>{
 
 // scrape mtggoldfish.com for the price , the scrape location/card name pairs are stored in ../config/Targets
 
-router.get('/mtg', (req,res) =>{
+router.get('/mtg',   async (req,res)  =>{
 
 
-    scraper(targets.find(el => el.name === req.query.name).priceLocation)
-    .then(price => res.send(price))
-    .catch(err => console.log(err))
+   var price =  await scraper(targets.find(el => el.name === req.query.name).priceLocation)
+    var name = req.query.name
+   res.render('result',{name,price})
+    
 
-console.log(targets.find(el => el.name === req.query.name)) 
+
+    
 
 }
 )
+
+router.get('/', (req,res) => {
+    Cards.findAll().then(
+        cards => {
+            res.render('cards',{cards})
+        }
+    ).catch(err =>console.log(err))
+})
+
+
+
+
 
 module.exports = router         
